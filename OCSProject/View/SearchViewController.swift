@@ -24,20 +24,37 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initLogoOnTitleView()
+        initStatusBarColor()
         initSearchBar()
         initCollectionView()
         bindDataSource()
     }
     
+    private func initStatusBarColor () {
+        let statusBar = UIView(frame: (UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame)!)
+        statusBar.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.00)
+        UIApplication.shared.windows.first?.addSubview(statusBar)
+    }
+    
     private func initSearchBar () {
         searchController = UISearchController(searchResultsController:  nil)
-        searchController.searchBar.placeholder = viewModel.searchPlaceholder
         searchController.searchBar.delegate = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = viewModel.searchPlaceholder
         searchController.searchBar.placeholder = viewModel.searchPlaceholder
         searchController.searchBar.becomeFirstResponder()
-        navigationItem.titleView = searchController.searchBar
+        navigationItem.backButtonTitle = ""
+        navigationItem.searchController = searchController
+        searchController.searchBar.searchTextField.textColor = .white
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func initLogoOnTitleView () {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "ocs_titleView")
+        imageView.image = image
+        navigationItem.titleView = imageView
     }
     
     private func bindDataSource () {
@@ -83,13 +100,12 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 1, bottom: 5, right: 1)
+        return UIEdgeInsets(top: 10, left: 4, bottom: 5, right: 4)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.bounds.width - 4
+        let collectionViewWidth = collectionView.bounds.width - 16
         return CGSize(width: collectionViewWidth / 2, height: collectionViewWidth / 2)
-        //return CGSize(width: collectionViewWidth, height: collectionViewWidth)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -100,7 +116,6 @@ extension SearchViewController : UICollectionViewDelegateFlowLayout {
 extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // searchController.isActive = false
         NavigationRouter.pushViewController(ofType: DetailsViewController.self, on: self) { detailViewController in
             detailViewController.viewModel.content = self.viewModel.dataSource[indexPath.row]
         }

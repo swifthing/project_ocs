@@ -37,7 +37,6 @@ class SearchViewModel: SearchUseCasesProtocol {
         let search = APIFetcher()
         search.search(for: keyword)
         search.$searchResult
-            //.receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 guard let self = self else {return}
                 if let content = value.contents {

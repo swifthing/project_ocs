@@ -76,7 +76,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G5l-8G-zMe" secondAttribute="trailing" id="074-dV-mhM"/>
-                            <constraint firstItem="G5l-8G-zMe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HLK-Gd-Dzo"/>
+                            <constraint firstItem="G5l-8G-zMe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HLK-Gd-Dzo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G5l-8G-zMe" secondAttribute="bottom" id="IMt-oi-sbh"/>
                             <constraint firstItem="G5l-8G-zMe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k4L-gX-EcY"/>
                         </constraints>

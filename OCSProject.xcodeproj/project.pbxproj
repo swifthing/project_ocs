@@ -13,6 +13,7 @@
 		E92813CA2736857500FD4D32 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813C92736857500FD4D32 /* DetailsViewModel.swift */; };
 		E92813CC2736F5BD00FD4D32 /* UIDevice+AppAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813CB2736F5BD00FD4D32 /* UIDevice+AppAddition.swift */; };
 		E92813CF27370CFC00FD4D32 /* SearchUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813CE27370CFC00FD4D32 /* SearchUseCases.swift */; };
+		E9A483392738490100C82EB2 /* FakeJsonResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A483382738490100C82EB2 /* FakeJsonResponse.json */; };
 		E9DC770B2731D5CB0003A28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770A2731D5CB0003A28E /* AppDelegate.swift */; };
 		E9DC770D2731D5CB0003A28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770C2731D5CB0003A28E /* SceneDelegate.swift */; };
 		E9DC770F2731D5CB0003A28E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770E2731D5CB0003A28E /* SearchViewController.swift */; };
@@ -56,6 +57,7 @@
 		E92813C92736857500FD4D32 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		E92813CB2736F5BD00FD4D32 /* UIDevice+AppAddition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+AppAddition.swift"; sourceTree = "<group>"; };
 		E92813CE27370CFC00FD4D32 /* SearchUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCases.swift; sourceTree = "<group>"; };
+		E9A483382738490100C82EB2 /* FakeJsonResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeJsonResponse.json; sourceTree = "<group>"; };
 		E9DC77072731D5CB0003A28E /* OCSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC770A2731D5CB0003A28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DC770C2731D5CB0003A28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,13 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		E9A48337273848E500C82EB2 /* FakeData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FakeData;
+			sourceTree = "<group>";
+		};
 		E9DC76FE2731D5CB0003A28E = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +175,8 @@
 		E9DC77202731D5CF0003A28E /* OCSProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9A483382738490100C82EB2 /* FakeJsonResponse.json */,
+				E9A48337273848E500C82EB2 /* FakeData */,
 				E9DC77212731D5CF0003A28E /* OCSProjectTests.swift */,
 			);
 			path = OCSProjectTests;
@@ -360,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A483392738490100C82EB2 /* FakeJsonResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +647,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UP2A3RVFX4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,7 +672,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UP2A3RVFX4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

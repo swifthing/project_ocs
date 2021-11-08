@@ -42,6 +42,8 @@ class SearchViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = viewModel.searchPlaceholder
         searchController.searchBar.placeholder = viewModel.searchPlaceholder
+        searchController.obscuresBackgroundDuringPresentation = false
+        
         searchController.searchBar.becomeFirstResponder()
         navigationItem.backButtonTitle = ""
         navigationItem.searchController = searchController

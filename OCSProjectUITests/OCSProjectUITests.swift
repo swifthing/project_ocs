@@ -8,6 +8,8 @@
 import XCTest
 
 class OCSProjectUITests: XCTestCase {
+    
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,19 +25,15 @@ class OCSProjectUITests: XCTestCase {
     }
     
     func test_ForOpeningSearchTextField_ThenCancel () throws {
-        
-        let app = XCUIApplication()
         app.launch()
         
         let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
         motsClSSearchField.tap()
         
         app.navigationBars["OCSProject.SearchView"].buttons["Cancel"].tap()
-                
     }
     
     func test_OpenFirstCell_ThenBackToSearch () throws {
-        let app = XCUIApplication()
         app.launch()
         let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 0)
         guard firstChild.exists else {return}
@@ -44,7 +42,6 @@ class OCSProjectUITests: XCTestCase {
     }
 
     func test_forSearchForLettersSPI_TouchFirstCell_AndOpenVideo_ThenCloseIt_ThenBackToSearch() throws {
-        let app = XCUIApplication()
         app.launch()
         
         let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
@@ -67,8 +64,13 @@ class OCSProjectUITests: XCTestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
     }
     
-    func testOpenVideo () throws {
-        
+    func test_OnlyOpenVideo_ThenCloseIt () throws {
+        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 0)
+        guard firstChild.exists else {return}
+        firstChild.tap()
+        app.scrollViews.otherElements.buttons["play"].tap()
+        app.buttons["Done"].tap()
+        app.navigationBars.buttons.element(boundBy: 0).tap()
     }
 
     func testLaunchPerformance() throws {

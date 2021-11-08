@@ -31,7 +31,7 @@ class APIFetcher {
     }
     
     func searchFrom(taskPublisher: URLSession.DataTaskPublisher) {
-        task = taskPublisher // URLSession.shared.dataTaskPublisher(for: url)
+        task = taskPublisher
             .map{$0.data}
             .decode(type: Search.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
@@ -45,11 +45,11 @@ class APIFetcher {
             components.host = "api.ocs.fr"
             components.path = link
         guard let url = components.url else { return }
-        detailFrom(taskPubliser: dataFromURLSession(with: url))
+        detailFrom(taskPublisher: dataFromURLSession(with: url))
     }
     
-    func detailFrom(taskPubliser: URLSession.DataTaskPublisher) {
-        task = taskPubliser
+    func detailFrom(taskPublisher: URLSession.DataTaskPublisher) {
+        task = taskPublisher
             .first()
             .map{$0.data}
             .decode(type: Detail.self, decoder: JSONDecoder())

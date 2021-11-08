@@ -1,0 +1,89 @@
+{
+    "template": "detail",
+    "parentalrating": 1,
+    "categoryID": 18,
+    "contents": {
+        "parentalrating": 1,
+        "isbookmarkable": true,
+        "isdownloadable": true,
+        "number": null,
+        "title": [
+            {
+                "type": "text",
+                "value": "BONUS - LES COSTUMES - GAME OF THRONES S7",
+                "color": null
+            }
+        ],
+        "duration": "PT3M10S",
+        "availability": [
+            {
+                "type": "picto",
+                "value": "clock",
+                "color": null
+            },
+            {
+                "type": "text",
+                "value": "dispo 99j",
+                "color": null
+            }
+        ],
+        "summary": "La costumière de Game of Thrones Michelle Clapton vous fait découvrir l'enver du décor de la saison 7. OCS vous propose en exclusivité la saison 7 de Game of Thrones en simultané avec les US. Rendez-vous à partir du 17 juillet chaque lundi dès 03.00 du matin et à 20.55 en US+24.",
+        "highlefticon": null,
+        "highrighticon": null,
+        "subtitle": null,
+        "subtitlefocus": null,
+        "pitch": "La costumière de Game of Thrones Michelle Clapton vous fait découvrir l'enver du décor de la saison 7. OCS vous propose en exclusivité la saison 7 de Game of Thrones en simultané avec les US. Rendez-vous à partir du 17 juillet chaque lundi dès 03.00 du matin et à 20.55 en US+24.",
+        "bannerinfo": [
+            {
+                "type": "picto",
+                "value": "csa1",
+                "color": null
+            },
+            {
+                "type": "text",
+                "value": "0h03",
+                "color": "#9a9a9a"
+            }
+        ],
+        "description": [
+            [
+                "bonus"
+            ],
+            [
+                "pays : France",
+                "réalisé par Pauline Frotiée"
+            ],
+            [
+                "année de production : 2017",
+                "genre : émission spéciale"
+            ],
+            [
+                ""
+            ]
+        ],
+        "imageurl": "/data_plateforme/program/31302/origin_ingot7costuw0125610_srq74.jpg?size=medium",
+        "fullscreenimageurl": "/data_plateforme/program/31302/origin_ingot7costuw0125610_srq74.jpg?size=large",
+        "linearplanning": null,
+        "acontents": null,
+        "playinfoid": {
+            "sd": "DEE3C308-4B65-A6A7-FDE6-C24BDFE09342",
+            "hd": "DEE3C308-4B65-A6A7-FDE6-C24BDFE09342",
+            "uhd": null
+        },
+        "playinfo": {
+            "tokenurl": null,
+            "url": null
+        },
+        "id": "INGOT7COSTUW0125610",
+        "zonesinfo": {
+            "duration": 190,
+            "endcreditsautocompleted": true,
+            "previouslytcin": null,
+            "previouslytcout": null,
+            "startcreditstcin": null,
+            "startcreditstcout": null,
+            "endcreditstcin": 172,
+            "endcreditstcout": 190
+        }
+    }
+}

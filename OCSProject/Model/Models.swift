@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Search: Codable {
+struct Search: Codable, Equatable {
+    
     var title: String?
     var contents: [Contents]?
     
-    struct Contents: Codable {
+    struct Contents: Codable, Equatable {
         var title: [Title]
         var subtitle: String
         var imageurl: String
@@ -19,12 +20,20 @@ struct Search: Codable {
         var id: String
         var detaillink: String
         var duration: String
+        
+        static func == (lhs: Contents, rhs: Contents) -> Bool {
+            lhs.id == rhs.id
+        }
     }
     
     struct Title: Codable {
         var color: String?
         var type: String
         var value: String
+    }
+    
+    static func == (lhs: Search, rhs: Search) -> Bool {
+        lhs.contents == rhs.contents
     }
 }
 
@@ -33,6 +42,10 @@ struct Detail: Codable {
     
     struct Contents: Codable {
         var pitch: String
+    }
+    
+    static func == (lhs: Detail, rhs: Detail) -> Bool {
+        lhs.contents?.pitch ?? "" == rhs.contents?.pitch ?? ""
     }
 }
 

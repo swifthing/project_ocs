@@ -11,14 +11,10 @@ import Combine
 
 class OCSProjectTests: XCTestCase {
     
+    private let bundle = Bundle(for: OCSProjectTests.self)
     private var cancellable: Set<AnyCancellable> = []
     
-    let incorrectData = "error".data(using: .utf8)!
-    var correctData: Data {
-        let bundle = Bundle(for: OCSProject.DetailsViewController.self)
-            guard let url = bundle.url(forResource: "FakeJsonResponse", withExtension: "json") else { return Data() }
-            return try! Data(contentsOf: url)
-        }
+    private let incorrectData = "error".data(using: .utf8)!
 
     override func setUpWithError() throws {
         cancellable = []
@@ -28,29 +24,55 @@ class OCSProjectTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func teestExample() throws {
-                
-        guard let url = Bundle.main.url(forResource: "FakeJsonResponse", withExtension: "json") else {
-            XCTAssertFalse(true)
-            return }
+    func test_ForSearch() throws {
         
+        guard let url = bundle.url(forResource: "FakeSearchJson", withExtension: "json") else { return XCTAssert(false) }
         let taskPublisher = URLSession.shared.dataTaskPublisher(for: url)
         
         let api = APIFetcher()
         api.searchFrom(taskPublisher: taskPublisher)
         
         api.$searchResult
+            .receive(on: DispatchQueue.main)
             .sink { value in
-                XCTAssert(value.contents?.isEmpty == true)
+                let manualDecode = self.manualDecodeFromJsonForSearch()
+                XCTAssert(value == manualDecode)
             }
             .store(in: &cancellable)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_ForDetail () throws {
+        
+        guard let url = bundle.url(forResource: "FakeDetailJson", withExtension: "json") else { return XCTAssert(false) }
+        let taskPublisher = URLSession.shared.dataTaskPublisher(for: url)
+        
+        let api = APIFetcher()
+        api.detailFrom(taskPublisher: taskPublisher)
+        
+        api.$detailResult
+            .receive(on: DispatchQueue.main)
+            .sink { value in
+                let manualDecode = self.manualDecodeFromJsonForDetail()
+                XCTAssert(value == manualDecode)
+            }
+            .store(in: &cancellable)
     }
-
+    
+    private func manualDecodeFromJsonForSearch () -> Search {
+        do {
+            guard let url = bundle.url(forResource: "FakeSearchJson", withExtension: "json") else { return Search() }
+            let data = try Data(contentsOf: url)
+            let json = try JSONDecoder().decode(Search.self, from: data)
+            return json
+        } catch { return Search() }
+    }
+    
+    private func manualDecodeFromJsonForDetail () -> Detail {
+        do {
+            guard let url = bundle.url(forResource: "FakeDetailJson", withExtension: "json") else { return Detail() }
+            let data = try Data(contentsOf: url)
+            let json = try JSONDecoder().decode(Detail.self, from: data)
+            return json
+        } catch { return Detail() }
+    }
 }

@@ -6,21 +6,44 @@
 //
 
 import XCTest
+import Combine
 @testable import OCSProject
 
 class OCSProjectTests: XCTestCase {
+    
+    private var cancellable: Set<AnyCancellable> = []
+    
+    let incorrectData = "error".data(using: .utf8)!
+    var correctData: Data {
+        let bundle = Bundle(for: OCSProject.DetailsViewController.self)
+            guard let url = bundle.url(forResource: "FakeJsonResponse", withExtension: "json") else { return Data() }
+            return try! Data(contentsOf: url)
+        }
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        cancellable = []
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func teestExample() throws {
+                
+        guard let url = Bundle.main.url(forResource: "FakeJsonResponse", withExtension: "json") else {
+            XCTAssertFalse(true)
+            return }
+        
+        let taskPublisher = URLSession.shared.dataTaskPublisher(for: url)
+        
+        let api = APIFetcher()
+        api.searchFrom(taskPublisher: taskPublisher)
+        
+        api.$searchResult
+            .sink { value in
+                XCTAssert(value.contents?.isEmpty == true)
+            }
+            .store(in: &cancellable)
     }
 
     func testPerformanceExample() throws {

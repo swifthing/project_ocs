@@ -21,14 +21,54 @@ class OCSProjectUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    func test_ForOpeningSearchTextField_ThenCancel () throws {
+        
         let app = XCUIApplication()
         app.launch()
+        
+        let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
+        motsClSSearchField.tap()
+        
+        app.navigationBars["OCSProject.SearchView"].buttons["Cancel"].tap()
+                
+    }
+    
+    func test_OpenFirstCell_ThenBackToSearch () throws {
+        let app = XCUIApplication()
+        app.launch()
+        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 0)
+        guard firstChild.exists else {return}
+        firstChild.tap()
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+    }
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_forSearchForLettersSPI_TouchFirstCell_AndOpenVideo_ThenCloseIt_ThenBackToSearch() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
+        motsClSSearchField.tap()
+        
+        let gKey = app.keys["G"]
+        gKey.tap()
+        let aKey = app.keys["a"]
+        aKey.tap()
+        let mKey = app.keys["m"]
+        mKey.tap()
+        let eKey = app.keys["e"]
+        eKey.tap()
+        
+        let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 0)
+        guard firstChild.exists else {return}
+        firstChild.tap()
+        app.scrollViews.otherElements.buttons["play"].tap()
+        app.buttons["Done"].tap()
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+    }
+    
+    func testOpenVideo () throws {
+        
     }
 
     func testLaunchPerformance() throws {

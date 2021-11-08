@@ -11,6 +11,11 @@ class OCSProjectUITests: XCTestCase {
     
     let app = XCUIApplication()
 
+    override func setUp() {
+        app.launch()
+        XCUIDevice.shared.orientation = .portrait
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -25,8 +30,6 @@ class OCSProjectUITests: XCTestCase {
     }
     
     func test_ForOpeningSearchTextField_ThenCancel () throws {
-        app.launch()
-        
         let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
         motsClSSearchField.tap()
         
@@ -34,16 +37,14 @@ class OCSProjectUITests: XCTestCase {
     }
     
     func test_OpenFirstCell_ThenBackToSearch () throws {
-        app.launch()
         let firstChild = app.collectionViews.children(matching:.any).element(boundBy: 0)
         guard firstChild.exists else {return}
         firstChild.tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
     }
 
+    // MARK: To ensure that this test works please disable "Connect Hardware Keyboard" option in I/O > Keyboard menu of simulator
     func test_forSearchForLettersSPI_TouchFirstCell_AndOpenVideo_ThenCloseIt_ThenBackToSearch() throws {
-        app.launch()
-        
         let motsClSSearchField = app.navigationBars["OCSProject.SearchView"].searchFields["Mots clés"]
         motsClSSearchField.tap()
         

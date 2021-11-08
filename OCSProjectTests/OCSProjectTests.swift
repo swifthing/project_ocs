@@ -35,7 +35,7 @@ class OCSProjectTests: XCTestCase {
         api.$searchResult
             .receive(on: DispatchQueue.main)
             .sink { value in
-                let manualDecode = self.manualDecodeFromJsonForSearch()
+                let manualDecode = self.manualDecodeFromJson(type: Search.self, "FakeSearch", "json")
                 XCTAssert(value == manualDecode)
             }
             .store(in: &cancellable)
@@ -52,27 +52,18 @@ class OCSProjectTests: XCTestCase {
         api.$detailResult
             .receive(on: DispatchQueue.main)
             .sink { value in
-                let manualDecode = self.manualDecodeFromJsonForDetail()
+                let manualDecode = self.manualDecodeFromJson(type: Detail.self, "FakeDetail", "json")
                 XCTAssert(value == manualDecode)
             }
             .store(in: &cancellable)
     }
     
-    private func manualDecodeFromJsonForSearch () -> Search {
+    private func  manualDecodeFromJson <T: Decodable> (type: T.Type, _ ressource: String, _ extension: String) -> T {
         do {
-            guard let url = bundle.url(forResource: "FakeSearch", withExtension: "json") else { return Search() }
+            guard let url = bundle.url(forResource: ressource, withExtension: "json") else { return T.self as! T }
             let data = try Data(contentsOf: url)
-            let json = try JSONDecoder().decode(Search.self, from: data)
+            let json = try JSONDecoder().decode(T.self, from: data)
             return json
-        } catch { return Search() }
-    }
-    
-    private func manualDecodeFromJsonForDetail () -> Detail {
-        do {
-            guard let url = bundle.url(forResource: "FakeDetail", withExtension: "json") else { return Detail() }
-            let data = try Data(contentsOf: url)
-            let json = try JSONDecoder().decode(Detail.self, from: data)
-            return json
-        } catch { return Detail() }
+        } catch { return T.self as! T }
     }
 }

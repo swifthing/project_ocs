@@ -12,8 +12,8 @@
 		E92813C827367E8D00FD4D32 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813C727367E8D00FD4D32 /* SearchViewModel.swift */; };
 		E92813CA2736857500FD4D32 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813C92736857500FD4D32 /* DetailsViewModel.swift */; };
 		E92813CC2736F5BD00FD4D32 /* UIDevice+AppAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92813CB2736F5BD00FD4D32 /* UIDevice+AppAddition.swift */; };
-		E970F53227398BDF0063CD4B /* FakeDetailJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E970F53127398BDF0063CD4B /* FakeDetailJson.json */; };
-		E9A483392738490100C82EB2 /* FakeSearchJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A483382738490100C82EB2 /* FakeSearchJson.json */; };
+		E970F53227398BDF0063CD4B /* FakeDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = E970F53127398BDF0063CD4B /* FakeDetail.json */; };
+		E9A483392738490100C82EB2 /* FakeSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A483382738490100C82EB2 /* FakeSearch.json */; };
 		E9DC770B2731D5CB0003A28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770A2731D5CB0003A28E /* AppDelegate.swift */; };
 		E9DC770D2731D5CB0003A28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770C2731D5CB0003A28E /* SceneDelegate.swift */; };
 		E9DC770F2731D5CB0003A28E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC770E2731D5CB0003A28E /* SearchViewController.swift */; };
@@ -56,8 +56,8 @@
 		E92813C727367E8D00FD4D32 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E92813C92736857500FD4D32 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		E92813CB2736F5BD00FD4D32 /* UIDevice+AppAddition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+AppAddition.swift"; sourceTree = "<group>"; };
-		E970F53127398BDF0063CD4B /* FakeDetailJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeDetailJson.json; sourceTree = "<group>"; };
-		E9A483382738490100C82EB2 /* FakeSearchJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeSearchJson.json; sourceTree = "<group>"; };
+		E970F53127398BDF0063CD4B /* FakeDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeDetail.json; sourceTree = "<group>"; };
+		E9A483382738490100C82EB2 /* FakeSearch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeSearch.json; sourceTree = "<group>"; };
 		E9DC77072731D5CB0003A28E /* OCSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC770A2731D5CB0003A28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DC770C2731D5CB0003A28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		E9DC77202731D5CF0003A28E /* OCSProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				E9A483382738490100C82EB2 /* FakeSearchJson.json */,
-				E970F53127398BDF0063CD4B /* FakeDetailJson.json */,
+				E9A483382738490100C82EB2 /* FakeSearch.json */,
+				E970F53127398BDF0063CD4B /* FakeDetail.json */,
 				E9DC77212731D5CF0003A28E /* OCSProjectTests.swift */,
 			);
 			path = OCSProjectTests;
@@ -347,8 +347,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E970F53227398BDF0063CD4B /* FakeDetailJson.json in Resources */,
-				E9A483392738490100C82EB2 /* FakeSearchJson.json in Resources */,
+				E970F53227398BDF0063CD4B /* FakeDetail.json in Resources */,
+				E9A483392738490100C82EB2 /* FakeSearch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

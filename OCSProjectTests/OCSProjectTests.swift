@@ -26,7 +26,7 @@ class OCSProjectTests: XCTestCase {
 
     func test_ForSearch() throws {
         
-        guard let url = bundle.url(forResource: "FakeSearchJson", withExtension: "json") else { return XCTAssert(false) }
+        guard let url = bundle.url(forResource: "FakeSearch", withExtension: "json") else { return XCTAssert(false) }
         let taskPublisher = URLSession.shared.dataTaskPublisher(for: url)
         
         let api = APIFetcher()
@@ -43,7 +43,7 @@ class OCSProjectTests: XCTestCase {
     
     func test_ForDetail () throws {
         
-        guard let url = bundle.url(forResource: "FakeDetailJson", withExtension: "json") else { return XCTAssert(false) }
+        guard let url = bundle.url(forResource: "FakeDetail", withExtension: "json") else { return XCTAssert(false) }
         let taskPublisher = URLSession.shared.dataTaskPublisher(for: url)
         
         let api = APIFetcher()
@@ -60,7 +60,7 @@ class OCSProjectTests: XCTestCase {
     
     private func manualDecodeFromJsonForSearch () -> Search {
         do {
-            guard let url = bundle.url(forResource: "FakeSearchJson", withExtension: "json") else { return Search() }
+            guard let url = bundle.url(forResource: "FakeSearch", withExtension: "json") else { return Search() }
             let data = try Data(contentsOf: url)
             let json = try JSONDecoder().decode(Search.self, from: data)
             return json
@@ -69,7 +69,7 @@ class OCSProjectTests: XCTestCase {
     
     private func manualDecodeFromJsonForDetail () -> Detail {
         do {
-            guard let url = bundle.url(forResource: "FakeDetailJson", withExtension: "json") else { return Detail() }
+            guard let url = bundle.url(forResource: "FakeDetail", withExtension: "json") else { return Detail() }
             let data = try Data(contentsOf: url)
             let json = try JSONDecoder().decode(Detail.self, from: data)
             return json
